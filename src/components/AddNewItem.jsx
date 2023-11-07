@@ -1,13 +1,23 @@
 import "./AddNewItem.css";
 
-export default function AddNewItem({ items, updateItemsList }) {
+export default function AddNewItem({
+  items,
+  updateItemsList,
+  listItemsCount,
+  setListItemsCount,
+}) {
   function handleKeyPress(event) {
+    let item = event.target.value.trim().replace(/\s+/g, " ");
     if (event.key === "Enter") {
-      console.log("Enter key is pressed");
-      items.push(event.target.value);
+      if (item === "" || items.includes(item)) {
+        event.target.value = "";
+        return;
+      }
+      for (let i = 0; i < items.length; i++) {
+        if (items[i][0] === item) return;
+      }
+      updateItemsList([...items, [item, "active"]]);
       event.target.value = "";
-      updateItemsList(items);
-      console.log(items);
     }
   }
 
@@ -18,7 +28,7 @@ export default function AddNewItem({ items, updateItemsList }) {
         name=""
         placeholder="Add New"
         onChange={() => ""}
-        onKeyPress={handleKeyPress}
+        onKeyDown={handleKeyPress}
       />
     </div>
   );
