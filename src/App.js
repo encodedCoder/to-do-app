@@ -1,19 +1,15 @@
-import "./App.css";
+import { useState } from "react";
 import AddNewItem from "./components/AddNewItem";
-// import Item from "./components/Item";
 import ItemsList from "./components/ItemsList";
 
-const items = ["Task-1", "Task-2", "Task-3", "Task-4"];
-
 function App() {
+  const [items, setItems] = useState([]);
   return (
     <div className="App">
       <header className="App-header">
         <h1>Things to do</h1>
-        {/* Hello World */}
-        <AddNewItem />
+        <AddNewItem items={items} updateItemsList={setItems} />
         <ItemsList items={items} />
-        {/* <Item /> */}
       </header>
     </div>
   );
