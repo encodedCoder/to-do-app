@@ -1,3 +1,5 @@
 .items-list {
   list-style: none;
+  width: 80%;
+  margin: 0 auto;
 }

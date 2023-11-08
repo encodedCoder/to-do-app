@@ -1,32 +1,49 @@
 import "./Item.css";
 import { useState } from "react";
 
-export default function Item({ item, index }) {
-  let checkedCheckbox = false;
+export default function Item({ item, index, key, removeItem }) {
+  const [checkedCheckbox, setCheckedCheckbox] = useState(false);
   const checkBoxBlank = "./images/checkboxes/checkbox-blank.png";
   const checkBoxChecked = "./images/checkboxes/checkbox-checked.png";
   const [imgSrc, setImageSrc] = useState(checkBoxBlank);
+  const [isActiveTask, setActiveTask] = useState(true);
 
-  let handleMouseDown = (event) => {
-    checkedCheckbox ? setImageSrc(checkBoxBlank) : setImageSrc(checkBoxChecked);
-    checkedCheckbox = checkedCheckbox ? false : true;
-    console.log("Mouse button pressed");
-    setImageSrc(checkBoxChecked);
+  const handleTaskActive = (event) => {
+    setActiveTask(!isActiveTask);
   };
 
-  let handleOnMouseOver = (event) => {
+  const handleMouseDownOnTask = (event) => {
+    checkedCheckbox ? setImageSrc(checkBoxBlank) : setImageSrc(checkBoxChecked);
+    setCheckedCheckbox(!checkedCheckbox);
+    // console.log(checkedCheckbox);
+  };
+
+  const handleOnMouseOver = (event) => {
     event.target.style.cursor = "pointer";
   };
+
+  const removeItemFromList = (event) => {
+    console.log(index);
+    removeItem(index);
+  };
+
   return (
-    <div
-      className="item"
-      onMouseDown={handleMouseDown}
-      onMouseOver={handleOnMouseOver}
-    >
-      <img src={imgSrc} alt="checkbox"></img>
-      <span>{item}</span>
-      <img src="./images/trash-bin.png" alt="trash-bin"></img>
-      <hr></hr>
-    </div>
+    <>
+      <div className="task-container">
+        <div
+          className="task-name"
+          onMouseDown={handleMouseDownOnTask}
+          onMouseOver={handleOnMouseOver}
+        >
+          <img className="checkbox-image" src={imgSrc} alt="checkbox"></img>
+          <span class={"complete"}>{item}</span>
+        </div>
+        <div className="task-delete" onMouseDown={removeItemFromList}>
+          <div className="task-delete-img-container">
+            <img src="./images/trash-bin.png" alt="trash-bin"></img>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

@@ -1,3 +1,51 @@
-.item {
+.task-container {
   user-select: none;
+  height: 4.5rem;
+  align-self: auto;
+  margin: 0 auto;
+  background-color: rgb(221, 248, 255);
+  text-align: left;
+  margin-top: 15px;
+  border-radius: 5px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-name {
+  width: 80%;
+  justify-content: flex-start;
+}
+
+.task-name-completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.task-name > .checkbox-image {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.task-delete {
+  background-color: cadetblue;
+  vertical-align: middle;
+  width: 2.8rem;
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-delete:hover {
+  background-color: rgb(137, 222, 225);
+}
+
+.task-delete:active {
+  background-color: rgb(46, 170, 174);
+}
+
+.task-delete-img-container {
+  flex: ce;
 }

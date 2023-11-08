@@ -1,20 +1,18 @@
 import "./AddNewItem.css";
 
-export default function AddNewItem({
-  items,
-  updateItemsList,
-  listItemsCount,
-  setListItemsCount,
-}) {
+export default function AddNewItem({ items, updateItemsList }) {
   function handleKeyPress(event) {
     let item = event.target.value.trim().replace(/\s+/g, " ");
     if (event.key === "Enter") {
-      if (item === "" || items.includes(item)) {
+      if (item === "") {
         event.target.value = "";
         return;
       }
       for (let i = 0; i < items.length; i++) {
-        if (items[i][0] === item) return;
+        if (items[i][0] === item) {
+          event.target.value = "";
+          return;
+        }
       }
       updateItemsList([...items, [item, "active"]]);
       event.target.value = "";
