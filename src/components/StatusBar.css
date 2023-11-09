@@ -1,0 +1,21 @@
+.status-bar-container {
+  background-color: thistle;
+  width: 80%;
+  margin: 1rem auto;
+  padding: 1rem 0;
+}
+
+.status-bar-buttons > button {
+  margin: 0 1rem;
+}
+
+.all,
+.active,
+.complete {
+  opacity: 50%;
+}
+.all-selected,
+.active-selected,
+.complete-selected {
+  opacity: 100%;
+}

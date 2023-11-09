@@ -1,21 +1,26 @@
 import "./Item.css";
 import { useState } from "react";
 
-export default function Item({ item, index, key, removeItem }) {
+export default function Item({ item, index, removeItem, changeActiveStatus }) {
   const [checkedCheckbox, setCheckedCheckbox] = useState(false);
   const checkBoxBlank = "./images/checkboxes/checkbox-blank.png";
   const checkBoxChecked = "./images/checkboxes/checkbox-checked.png";
   const [imgSrc, setImageSrc] = useState(checkBoxBlank);
-  const [isActiveTask, setActiveTask] = useState(true);
+  const [isTaskActive, setTaskActive] = useState(true);
 
-  const handleTaskActive = (event) => {
-    setActiveTask(!isActiveTask);
+  const changeTaskStatus = () => {
+    console.log(index);
+    // return;
+    isTaskActive
+      ? changeActiveStatus(index, "complete")
+      : changeActiveStatus(index, "active");
+    setTaskActive(!isTaskActive);
   };
 
   const handleMouseDownOnTask = (event) => {
+    changeTaskStatus();
     checkedCheckbox ? setImageSrc(checkBoxBlank) : setImageSrc(checkBoxChecked);
     setCheckedCheckbox(!checkedCheckbox);
-    // console.log(checkedCheckbox);
   };
 
   const handleOnMouseOver = (event) => {
@@ -23,7 +28,6 @@ export default function Item({ item, index, key, removeItem }) {
   };
 
   const removeItemFromList = (event) => {
-    console.log(index);
     removeItem(index);
   };
 
@@ -31,12 +35,12 @@ export default function Item({ item, index, key, removeItem }) {
     <>
       <div className="task-container">
         <div
-          className="task-name"
+          className={isTaskActive ? "task-name-active" : "task-name-complete"}
           onMouseDown={handleMouseDownOnTask}
           onMouseOver={handleOnMouseOver}
         >
           <img className="checkbox-image" src={imgSrc} alt="checkbox"></img>
-          <span class={"complete"}>{item}</span>
+          <span className={"task-name-text"}>{item}</span>
         </div>
         <div className="task-delete" onMouseDown={removeItemFromList}>
           <div className="task-delete-img-container">

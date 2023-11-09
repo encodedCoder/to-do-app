@@ -1,6 +1,6 @@
 import "./AddNewItem.css";
 
-export default function AddNewItem({ items, updateItemsList }) {
+export default function AddNewItem({ items, setItems }) {
   function handleKeyPress(event) {
     let item = event.target.value.trim().replace(/\s+/g, " ");
     if (event.key === "Enter") {
@@ -14,7 +14,7 @@ export default function AddNewItem({ items, updateItemsList }) {
           return;
         }
       }
-      updateItemsList([...items, [item, "active"]]);
+      setItems([...items, [item, "active"]]);
       event.target.value = "";
     }
   }

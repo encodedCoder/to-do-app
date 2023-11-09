@@ -1,7 +1,14 @@
 import Item from "./Item";
 import "./ItemsList.css";
 
-export default function ItemsList({ items, renderListType, removeItem }) {
+export default function ItemsList({
+  items,
+  renderList,
+  setTasksCount,
+  removeItem,
+  changeActiveStatus,
+}) {
+  console.log(items);
   return (
     <div className="items-list">
       {items.map((item, index) => {
@@ -12,6 +19,7 @@ export default function ItemsList({ items, renderListType, removeItem }) {
             key={index}
             index={index}
             removeItem={removeItem}
+            changeActiveStatus={changeActiveStatus}
           />
         ) : null;
       })}

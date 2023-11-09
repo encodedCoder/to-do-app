@@ -17,6 +17,11 @@
   justify-content: flex-start;
 }
 
+.task-name-active {
+  text-decoration: solid;
+  opacity: 100;
+}
+
 .task-name-completed {
   text-decoration: line-through;
   opacity: 0.5;
