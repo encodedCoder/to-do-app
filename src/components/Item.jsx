@@ -9,7 +9,7 @@ export default function Item({ item, index, removeItem, changeActiveStatus }) {
   const [isTaskActive, setTaskActive] = useState(true);
 
   const changeTaskStatus = () => {
-    console.log(index);
+    // console.log(index);
     // return;
     isTaskActive
       ? changeActiveStatus(index, "complete")

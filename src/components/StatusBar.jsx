@@ -1,9 +1,10 @@
 import "./StatusBar.css";
 
-export default function StatusBar({ renderList, setRenderList }) {
-  console.log("We're currently rendering: ", renderList);
+export default function StatusBar({ renderList, setRenderList, tasksCount }) {
+  // console.log("We're currently rendering: ", renderList);
   return (
     <div className="status-bar-container">
+      <div className="status-bar-item-count">{tasksCount + " tasks"}</div>
       <div className="status-bar-buttons">
         <button
           className={renderList === "all" ? "all-selected" : "all"}
@@ -29,7 +30,7 @@ export default function StatusBar({ renderList, setRenderList }) {
             setRenderList("complete");
           }}
         >
-          Completed
+          Complete
         </button>
       </div>
     </div>

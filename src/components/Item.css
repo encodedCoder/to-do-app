@@ -12,24 +12,23 @@
   justify-content: space-between;
 }
 
-.task-name {
+.task-name-active {
+  text-decoration: solid;
+  opacity: 100;
   width: 80%;
   justify-content: flex-start;
 }
 
-.task-name-active {
-  text-decoration: solid;
-  opacity: 100;
-}
-
-.task-name-completed {
+.task-name-complete {
   text-decoration: line-through;
   opacity: 0.5;
+  width: 80%;
+  justify-content: flex-start;
 }
 
-.task-name > .checkbox-image {
-  width: 40px;
-  height: 40px;
+.checkbox-image {
+  width: 2.3rem;
+  height: 2.3rem;
   margin-right: 0.5rem;
 }
 
@@ -41,6 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .task-delete:hover {
@@ -49,8 +49,4 @@
 
 .task-delete:active {
   background-color: rgb(46, 170, 174);
-}
-
-.task-delete-img-container {
-  flex: ce;
 }

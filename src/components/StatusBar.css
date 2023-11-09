@@ -3,6 +3,16 @@
   width: 80%;
   margin: 1rem auto;
   padding: 1rem 0;
+  display: flex;
+}
+
+.status-bar-item-count {
+  flex: 60%;
+  text-align: left;
+  margin-left: 1rem;
+}
+
+.status-bar-buttons {
 }
 
 .status-bar-buttons > button {

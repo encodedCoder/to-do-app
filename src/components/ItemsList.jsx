@@ -8,20 +8,20 @@ export default function ItemsList({
   removeItem,
   changeActiveStatus,
 }) {
-  console.log(items);
+  // console.log(items);
   return (
     <div className="items-list">
       {items.map((item, index) => {
-        return item[1] === "active" ? (
+        return (
           <Item
             className="item"
             item={item[0]}
-            key={index}
             index={index}
             removeItem={removeItem}
             changeActiveStatus={changeActiveStatus}
+            key={index}
           />
-        ) : null;
+        );
       })}
     </div>
   );
