@@ -7,6 +7,9 @@ export default function Item({ item, index, removeItem, changeActiveStatus }) {
   const checkBoxChecked = "./images/checkboxes/checkbox-checked.png";
   const [imgSrc, setImageSrc] = useState(checkBoxBlank);
   const [isTaskActive, setTaskActive] = useState(true);
+  const [taskClass, setTaskClass] = useState(
+    item[1] === "active" ? "task-name-active" : "task-name-complete"
+  );
 
   const changeTaskStatus = () => {
     // console.log(index);
@@ -19,6 +22,9 @@ export default function Item({ item, index, removeItem, changeActiveStatus }) {
 
   const handleMouseDownOnTask = (event) => {
     changeTaskStatus();
+    item[1] === "active"
+      ? setTaskClass("task-name-active")
+      : setTaskClass("task-name-complete");
     checkedCheckbox ? setImageSrc(checkBoxBlank) : setImageSrc(checkBoxChecked);
     setCheckedCheckbox(!checkedCheckbox);
   };
@@ -35,7 +41,7 @@ export default function Item({ item, index, removeItem, changeActiveStatus }) {
     <>
       <div className="task-container">
         <div
-          className={isTaskActive ? "task-name-active" : "task-name-complete"}
+          className={taskClass}
           onMouseDown={handleMouseDownOnTask}
           onMouseOver={handleOnMouseOver}
         >
