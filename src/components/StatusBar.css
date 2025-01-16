@@ -1,31 +1,49 @@
 .status-bar-container {
-  background-color: thistle;
+  background-color: #e9ecef; /* Light gray background */
   width: 80%;
   margin: 1rem auto;
   padding: 1rem 0;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .status-bar-item-count {
-  flex: 60%;
+  flex: 1;
   text-align: left;
   margin-left: 1rem;
+  color: #495057; /* Dark text color */
 }
 
 .status-bar-buttons {
+  display: flex;
+  gap: 1rem; /* Space between buttons */
 }
 
 .status-bar-buttons > button {
-  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff; /* Blue background */
+  color: #ffffff; /* White text */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.status-bar-buttons > button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
 .all,
 .active,
 .complete {
-  opacity: 50%;
+  opacity: 0.5;
 }
+
 .all-selected,
 .active-selected,
 .complete-selected {
-  opacity: 100%;
+  opacity: 1;
 }

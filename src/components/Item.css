@@ -1,29 +1,36 @@
 .task-container {
   user-select: none;
   height: 4.5rem;
-  align-self: auto;
   margin: 0 auto;
-  background-color: rgb(221, 248, 255);
+  background-color: #ffffff; /* White background */
   text-align: left;
   margin-top: 15px;
   border-radius: 5px;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.2s; /* Smooth transition */
+}
+
+.task-container:hover {
+  transform: translateY(-2px); /* Lift on hover */
 }
 
 .task-name-active {
-  text-decoration: solid;
-  opacity: 100;
+  text-decoration: none;
+  opacity: 1;
   width: 80%;
   justify-content: flex-start;
+  color: #495057; /* Dark text color */
 }
 
 .task-name-complete {
-  text-decoration: line-through;
-  opacity: 0.5;
+  /* text-decoration: line-through; */
+  opacity: 0.6;
   width: 80%;
   justify-content: flex-start;
+  color: #6c757d; /* Gray text color */
 }
 
 .checkbox-image {
@@ -33,7 +40,7 @@
 }
 
 .task-delete {
-  background-color: cadetblue;
+  background-color: #dc3545; /* Red background */
   vertical-align: middle;
   width: 2.8rem;
   border-radius: 0.3rem;
@@ -41,12 +48,13 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition */
 }
 
 .task-delete:hover {
-  background-color: rgb(137, 222, 225);
+  background-color: #c82333; /* Darker red on hover */
 }
 
 .task-delete:active {
-  background-color: rgb(46, 170, 174);
+  background-color: #bd2130; /* Even darker red on active */
 }
